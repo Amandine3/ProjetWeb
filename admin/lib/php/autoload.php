@@ -1,5 +1,5 @@
 <?php
-
+//fichier load
 function autoload($nom_classe)
 {
     if(file_exists('./lib/php/classes/'.$nom_classe.'.class.php'))
