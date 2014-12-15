@@ -1,16 +1,9 @@
 <?php
+include ('./lib/php/liste_include.php');
+ 
+echo 'Coucou';
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$db = connexion::getInstance($dsn,$user,$pass);
 
-/**
- * Description of index
- *
- * @author Amandine
- */
-class index {
-    //put your code here
-}
+echo 'Test'; 
+?>

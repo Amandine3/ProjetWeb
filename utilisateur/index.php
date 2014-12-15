@@ -1,27 +1,28 @@
 <!doctype html>
 <?php
 include ('./lib/php/Jliste_include.php');
-$db = Connexion::getInstance($dsn,$user,$pass);
+$db = connexion::getInstance($dsn,$user,$pass);
 session_start();
 ?>
 <html>
     <head>
-        <title>Pets-Sitting - Bienvenue</title>
+        <title> Smart games - Bienvenue</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../admin/lib/css/style_pc.css" />
         <link rel="stylesheet" type="text/css" href="../admin/lib/css/mediaqueries.css" />
     </head>
 <body>
-    <section id="page">
+    <!--<section id="page">
         <header>
             <img src="../admin/images/banniereFE.jpg" alt="Pets-Sitting" />
         </header>
         <section id="colGauche">
             <nav>
                 <?php
-                if(file_exists('./lib/php/Jmenu.php')){
+                /*if(file_exists('./lib/php/Jmenu.php')){
                     include ('./lib/php/Jmenu.php');
-                }                
+                }*/
+                echo 'Comm1';
                 ?>
             </nav>
         </section>
@@ -29,7 +30,7 @@ session_start();
             <div id="main">
                 <?php
   //quand on arrive sur le site 
-  if(!isset($_SESSION['page'])) {
+  /*if(!isset($_SESSION['page'])) {
       $_SESSION['page']="accueil";
   }  //si on a cliqué sur un lien du menu
   if(isset($_GET['page'])) {
@@ -38,12 +39,13 @@ session_start();
   $_SESSION['page']='./pages/'.$_SESSION['page'].'.php';
   if(file_exists($_SESSION['page'])){
       include ($_SESSION['page']);
-  }               
+  }     */
+                echo 'Comm2';
                 ?>
             </div>
         </section>
         
-    </section> 
+    </section> */-->
     <footer>
         Editeur responsable felix@petssitting.com
     </footer>
