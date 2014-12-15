@@ -1,5 +1,5 @@
 <?php
-
+print 'Dans AccueilManager';
 class AccueilManager extends Accueil {
     private $_db;
     private $_accueilArray = array();
