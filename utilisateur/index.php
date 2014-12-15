@@ -28,18 +28,20 @@ session_start();
         <section id="contenu">
             <div id="main">
                 <?php
-  //quand on arrive sur le site 
-  if(!isset($_SESSION['page'])) {
-      $_SESSION['page']="accueil";
-  }  //si on a cliqué sur un lien du menu
-  if(isset($_GET['page'])) {
-      $_SESSION['page']=$_GET['page'];
-  }
-  $_SESSION['page']='./pages/'.$_SESSION['page'].'.php';
-  if(file_exists($_SESSION['page'])){
-      include ($_SESSION['page']);
-  }     
-
+                    //quand on arrive sur le site 
+                    if(!isset($_SESSION['page']))
+                    {
+                        $_SESSION['page']="accueil";
+                    }  //si on a cliqué sur un lien du menu
+                    if(isset($_GET['page']))
+                    {
+                         $_SESSION['page']=$_GET['page'];
+                    }
+                    $_SESSION['page']='./pages/'.$_SESSION['page'].'.php';
+                    if(file_exists($_SESSION['page']))
+                    {
+                        include ($_SESSION['page']);
+                    }     
                 ?>
             </div>
         </section>
