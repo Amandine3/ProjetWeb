@@ -1,5 +1,5 @@
 <ul id="menu">
- <li class="bottomLine"><a href="index.php?page=accueil">Accueil</a></li>
+    <li class="bottomLine"><a href="index.php?page=accueil">Accueil</a></li>
  <li class="bottomLine"><a href="index.php?page=authentification">S'authentifier</a></li>
  <li class="bottomLine"><a href="index.php?page=commenter">Commenter un jeu</a></li>
  <li class="bottomLine"><a href="index.php?page=recherchertitre">Rechercher un jeu sur base de son titre</a></li>
