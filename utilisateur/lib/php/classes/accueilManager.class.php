@@ -2,25 +2,48 @@
 
 class AccueilManager extends Accueil {
     private $_db;
-    private $_accueilArray = array();
+    private $_accueilArray=array();
     
     public function __construct($db) {
         $this->_db = $db;
     }
     
-    public function getTexteAccueil(){
-        try {
-            $query="select texte_accueil from jeuvideo";
-            $resultset= $this->_db->prepare($query);
-            $resultset->execute();            
-        }catch(PDOException $e) {
-            print "Echec de la requ&ecirc;te ".$e->getMessage();
-        }
-    
-        while($data = $resultset->fetch()){
-            $_accueilArray[] = new Accueil($data);
+    //catalogue des fleurs
+    public function getTexte() {
+        try
+        {
+             echo "try " ; 
+            
+	    $query="SELECT nom,prenom FROM fournisseur";
+            $resultset = $this->_db->prepare($query);
+            $resultset->execute();
+            echo " fin try " ; 
+        } 
+        catch(PDOException $e)
+        {
+            print $e->getMessage();
         }
         
-        return $_accueilArray;
- } 
-}
+        while($data = $resultset->fetch())
+        {            
+            try
+            {
+                $_accueilArray[] = new Accueil($data);
+
+            } 
+            catch(PDOException $e)
+            {
+                
+                print $e->getMessage();
+            }            
+        }
+        if(empty($_accueilArray))
+        {
+            echo 'Array VIDE !';
+        }
+ else { echo 'Array pas vide ';}
+        return $_accueilArray;        
+    }
+ }
+
+?>
