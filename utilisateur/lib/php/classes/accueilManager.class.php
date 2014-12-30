@@ -14,7 +14,7 @@ class AccueilManager extends Accueil {
         {
              echo "try " ; 
             
-	    $query="SELECT nom,prenom FROM fournisseur";
+	    $query="SELECT nom FROM fournisseur";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
             echo " fin try " ; 
