@@ -3,15 +3,27 @@
 //accueil.php est contenu dans l'index, qui contient une
 //instance de db
 $accueilManager = new AccueilManager($db);
-$texteAcc = $accueilManager->getTexte();
-if (empty($texteAcc)) {
-  echo '$var vaut soit 0, vide, ou pas définie du tout';
-  
+$texteAcc = $accueilManager->getTexteAcc();
+echo 'le print r donne : ';
+    print_r($texteAcc);
+echo'apres print_r';
+
+
+if(count($texteAcc) == 0)
+{
+    echo "vide";
 }
- else {
-    echo '$var pas vide ';
-    
+else
+    {
+
+    for($i = 0; $i<count($texteAcc);$i++)
+    {
+
+    echo $texteAcc[$i]->gettexte();
 }
+}
+
+
 
 ?>
 <img src="../admin/images/Jeux-video.jpg" alt="Jeux video" />

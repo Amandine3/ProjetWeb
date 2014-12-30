@@ -9,23 +9,19 @@ class AccueilManager extends Accueil {
     }
     
     //catalogue des fleurs
-    public function getTexte() {
+    public function getTexteAcc() {
         try
         {
-             echo "try " ; 
             
-	    $query="SELECT nom FROM fournisseur";
+	    $query="SELECT mot FROM accueilmots";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
-            echo " fin try " ; 
         } 
-        catch(PDOException $e)
-        {
+        catch(PDOException $e){
             print $e->getMessage();
         }
         
-        while($data = $resultset->fetch())
-        {            
+        while($data = $resultset->fetch()){     
             try
             {
                 $_accueilArray[] = new Accueil($data);
@@ -37,11 +33,6 @@ class AccueilManager extends Accueil {
                 print $e->getMessage();
             }            
         }
-        if(empty($_accueilArray))
-        {
-            echo 'Array VIDE !';
-        }
- else { echo 'Array pas vide ';}
         return $_accueilArray;        
     }
  }
