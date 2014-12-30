@@ -50,7 +50,8 @@ session_start();
                 ?>
             </div>
         </section>
-                     <div id="login">
+        <!--    CODE LOGIN / MOT DE PASSE
+        <div id="login">
                 <form action="connexion.php" method="post">
          
          <table>
@@ -77,7 +78,7 @@ session_start();
             </div>
         
     </section> 
-
+-->
         
            
     <footer>

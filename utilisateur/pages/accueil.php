@@ -3,8 +3,8 @@
 //accueil.php est contenu dans l'index, qui contient une
 //instance de db
 $accueilManager = new AccueilManager($db);
-$texte = $accueilManager->getTexte();
-if (empty($texte)) {
+$texteAcc = $accueilManager->getTexte();
+if (empty($texteAcc)) {
   echo '$var vaut soit 0, vide, ou pas définie du tout';
   
 }
@@ -18,9 +18,9 @@ if (empty($texte)) {
 &nbsp;
 <div id="texte" class="up txtMauv">
     <?php print 'ici' ?>
-    <?php print $texte[0]->texte;?>
-    <?php  echo $texte[0]->texte;?>
-    <?php echo $texte; ?>
+    <?php print $texteAcc[0]->texte;?>
+    <?php  echo $texteAcc[0]->texte;?>
+    <?php echo $texteAcc; ?>
     <?php print 'la' ?>
 </div>
 

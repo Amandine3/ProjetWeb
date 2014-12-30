@@ -1,2 +1,3 @@
 /admin/lib/php/db_pg.php
 /admin/lib/php/fpdf/db_pg.php
+/utilisateur/lib/php/db_pg.php

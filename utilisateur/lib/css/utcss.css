@@ -34,7 +34,11 @@ and open the template in the editor.
 		background: -o-linear-gradient(bottom , #666666 0pt, #5E5E5E 50%, #707070 51%, #808080 100%) repeat scroll 0 0 transparent;
 		background: linear-gradient(bottom , #666666 0pt, #5E5E5E 50%, #707070 51%, #808080 100%) repeat scroll 0 0 transparent;
 		text-align: center;
-		height: 100px;
+		height: 50px;
+                width : 60%;
+                margin: 0 auto;
+                text-align : center;
+                margin-top : 3%;
 		-webkit-box-shadow: 0 1px 3px #999;
 		-moz-box-shadow: 0 1px 3px #999;
 		box-shadow: 0 1px 3px #999;
@@ -43,10 +47,10 @@ and open the template in the editor.
 		border-radius: 6px;
     }
 	#ex2 .nav a {
-		height: 36px;
+		height: 15px;
 		margin:0;
-		padding: 0 35px;
-		line-height: 36px;
+		padding: 0 10px;
+		line-height: 15px;
 		border-left: 1px solid #555;
 		border-right: 1px solid #888;
 		text-decoration: none;
@@ -74,7 +78,7 @@ and open the template in the editor.
     .ad {
 		position: fixed;
 		padding: 10px;
-		width: 125px; height: 260px;
+		width: 120px; height: 100px;//125 - 260 
 		bottom: 15px; right: 15px;
 	}
         
