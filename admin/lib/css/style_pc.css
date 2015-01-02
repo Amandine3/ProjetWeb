@@ -13,9 +13,9 @@
 #chenil_img {
     display:inline-block;
 }
-#texte_accueil {
+#mot {
     display:inline-block;
-    max-width:40%;
+    max-width:60%;
 }
 
 /****************** Layout ***************/

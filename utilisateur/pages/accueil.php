@@ -1,12 +1,13 @@
+
 <h2>SmartGames vous souhaite la bienvenue ! </h2>
 <?php
 //accueil.php est contenu dans l'index, qui contient une
 //instance de db
 $accueilManager = new AccueilManager($db);
 $texteAcc = $accueilManager->getTexteAcc();
-echo 'le print r donne : ';
-    print_r($texteAcc);
-echo'apres print_r';
+/*echo 'le print r donne : ';
+    print_r($texteAcc[0]);
+echo'apres print_r';*/
 
 
 if(count($texteAcc) == 0)
@@ -19,8 +20,8 @@ else
     for($i = 0; $i<count($texteAcc);$i++)
     {
 
-    echo $texteAcc[$i]->gettexte();
-}
+    /*echo $texteAcc[$i]->gettexte();-->*/
+    }
 }
 
 
@@ -28,19 +29,21 @@ else
 ?>
 <img src="../admin/images/Jeux-video.jpg" alt="Jeux video" />
 &nbsp;
-<div id="texte" class="up txtMauv">
-    <?php print 'ici' ?>
-    <?php print $texteAcc[0]->texte;?>
-    <?php  echo $texteAcc[0]->texte;?>
-    <?php echo $texteAcc; ?>
-    <?php print 'la' ?>
+<div id="mot" class="up txtMauv">
+    <?php for($i = 0; $i<count($texteAcc);$i++)
+    {
+        print "<br/>";
+        utf8_decode(print $texteAcc[$i]->mot);
+        print "<br/>";
+    }
+    ?>
 </div>
 
 
 
 <!---->
 
-<p><span class="txtGras"> Ceci est un text d'une balise SPAN </span>
+<p><span class="txtGras"> Nous prenons le plus grand soin lors du traitement de vos commandes. </span>
 </p>
 <?php
     //$accueilManager->faireQqch();

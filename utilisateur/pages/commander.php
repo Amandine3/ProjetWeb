@@ -1,11 +1,10 @@
 <h2 id="titre_page"> Commander un jeu </h2>
-<h3> Afin de nous contacter, veuillez répondre à ce formulaire et notre équipe vous joindra par e-mail </h3>
 
 <!--creer une table contact afin de mettre ces données dans la DB ?-->
 <section id="leform">
     <form id="form_contact" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
         <fieldset id="Client">
-        <legend class="txtMauv txtGras">Renseignements personnel : </legend>
+        <legend class="txtMauv txtGras">Renseignements : </legend>
         <table>
             
             <tr>
@@ -30,8 +29,12 @@
             </tr>				
 
             <tr>
+                <td>Titre du jeu : </td>
+                <td><input type="jeu" name="jeu_client" id="jeu_client" /></td>									
+            </tr>
+            <tr>
                 <td colspan="2">
-                <input type="submit" name="submit_reserv" id="submit_reserv" value="Cliquez ici pour nous contacter" />
+                <input type="submit" name="submit_reserv" id="submit_reserv" value="Cliquez ici pour commander ce jeu" />
                 &nbsp;&nbsp;&nbsp;
                 <input type="reset" id="reset" value="R&eacute;initialiser le formulaire" />
                 </td>

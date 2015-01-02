@@ -6,8 +6,8 @@ session_start();
 ?>
 <html>
     <head>
+        <meta charset="utf-8">
         <title> Smart games - Jeux videos </title>
-        <meta charset="UTF-8"/>
         
         <link rel="stylesheet" type="text/css" href="../utilisateur/lib/css/utcss.css" />
         <link rel="stylesheet" type="text/css" href="../admin/lib/css/style_pc.css" />
@@ -15,6 +15,7 @@ session_start();
 
     </head>
 <body>
+
     <section id="all_all">
         <header>
             <img src="../admin/images/sonic-banniere - Copie.png" alt="SmartGames Banniere" />

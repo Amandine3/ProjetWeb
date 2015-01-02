@@ -1,4 +1,4 @@
 <?php
-include ('../admin/lib/php/fpdf/db_pg.php');
-include ('../admin/lib/php/fpdf/autoload.php');
+include ('../admin/lib/php/db_pg.php');
+include ('../admin/lib/php/autoload.php');
 ?>
