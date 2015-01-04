@@ -18,18 +18,18 @@ $(document).ready(function() {
    
   //VERIFIER FORMULAIRE AVEC REGEX --> privilégier validate.js
   //www.sitepoint.com/jquery-basic-regex-selector-examples/ 
-  $('input#nom_maitre').blur(function() {
+  $('input#nom_client').blur(function() {
      var regex= new RegExp(/[0-9\?!\.,;]/);
      var ch = $(this).val();
      if(regex.test(ch)){   
-         $('input#nom_maitre').val('');
+         $('input#nom_client').val('');
          $('div#error').css({
              'color':'red',
              'font-size' : '70%',
              'font-weight':'bold'
          }),
          $('div#error').html("Veuillez n'entrer que des lettres"),
-         $('input#nom_maitre').focus(function() {
+         $('input#nom_client').focus(function() {
              $('div#error').fadeOut();
          })         
      }     
@@ -38,32 +38,34 @@ $(document).ready(function() {
   //ENVOYER FORMULAIRE RESERVATION PAR AJAX
   
   $('input#submit_reserv').on ('click',function(event) {
+      
       event.preventDefault();// ou return false à la fin
       //alert("arrivé");
-      var nom_m = $('input#nom_maitre').val();
-      var email_m = $('input#email_maitre').val();
-      var nom_a = $('input#nom_animal').val();
-      var date_d = $('input#date_debut').val();          
+      var type = $('input#type').val();
+      var nom_client = $('input#nom_client').val();
+      var pren_client = $('input#pren_client').val();
+      var comm_client = $('input#comm_client').val();
+      var email=$('input#email').val();
 
-      if($.trim(nom_m)!='' && $.trim(email_m)!='' && $.trim(nom_a)!='' && $.trim(date_d)!='' && ($('input#typeChien').is(':checked') || $('input#typeChat').is(':checked'))) {
+      if($.trim(type)!='' && $.trim(nom_client)!='' && $.trim(pren_client)!='' && $.trim(comm_client)!='' && $.trim(email)!='') {
           
-          var data_form=$('form#form_reservation').serialize();
+          var data_form=$('form#form_contact').serialize();
           //alert(data_form);
           $.ajax({               
             type : 'GET',            
             data : data_form,
             dataType : "json",//type du retour des données par le php
-            url : '../admin/lib/php/ajax/AjaxReservation_submit.php',
+            url : '../admin/lib/php/ajax/AjaxContact_submit.php',
             //callback exécuté en cas de succès uniquement :
             success : function(data){ //data : ce qui est retourné par le fichier php 
                 //effacer les valeurs
                 $('form').find('input[type=text]').val('');
                 $('form').find('input[type=email]').val('');
                 $('form').find('input[type=date]').val('');
-                $('input[name="type_animal"]').prop('checked', false);
-                $('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
-                $("select#id_jouet_pet").val("");
-                $("select#nombre_jours").val('2'); 
+                //$('input[name="type_animal"]').prop('checked', false);
+                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
+                //$("select#id_jouet_pet").val("");
+                //$("select#nombre_jours").val('2'); 
                 if(data.retour === 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         'color':'green',
