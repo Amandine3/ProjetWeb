@@ -4,21 +4,16 @@
 <?php
 
 if(isset($_GET['submit_reserv'])) {
-    echo '1111dans IFSSET CONTACT.php';
     extract($_GET,EXTR_OVERWRITE);
-    echo '222dans IFSSET CONTACT.php';
     if(trim($type)!='' && trim($nom_client)!='' && trim($pren_client)!='' && trim($comm_client)!='' && trim($email)!='') {
-        echo 'IF TRIM dans contact.php';
         $mg2 = new contactManager($db);
-        echo 'avant addContact dans contact.php';
         $retour = $mg2->addContact($_GET);
-        echo 'apres addContact dans contact.php';
         if($retour==1){
             $texte="<span class='txtGras'>Votre demande a bien été enregistrée.<br />Nous vous contacterons dans les meilleurs délais.</span>";
         }
-        else if ($retour==2) {
+        /*else if ($retour==2) { 'pas possible dans notre cas
             $texte="<span class='txtGras'>Déjà dans la base de données</span>";
-        }    
+        }    */
         if(isset($_SESSION['form'])) {unset($_SESSION['form']);}                
     }
     else {
