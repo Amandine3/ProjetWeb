@@ -23,11 +23,11 @@ if(isset($_GET['submit_reserv'])) {
     }
     else {
         $texte="Complétez tous les champs.";
-        if(trim($nom_maitre)!='') {$_SESSION['form']['nom_maitre']=$nom_maitre;}
-        if(trim($email_maitre)!='') {$_SESSION['form']['email_maitre']=$email_maitre;}
-        if(trim($date_debut)!='') {$_SESSION['form']['date_debut']=$date_debut;}
-        if(trim($nom_animal)!='') {$_SESSION['form']['nom_animal']=$nom_animal;}
-        if($nombre_jours!='') {$_SESSION['form']['nombre_jours']=$nombre_jours;}   
+        if(trim($type)!='') {$_SESSION['form']['type']=$type;}
+        if(trim($nom_client)!='') {$_SESSION['form']['nom_client']=$nom_client;}
+        if(trim($pren_client)!='') {$_SESSION['form']['pren_client']=$pren_client;}
+        if(trim($comm_client)!='') {$_SESSION['form']['comm_client']=$comm_client;}
+        if(trim($email)!='') {$_SESSION['form']['email']=$email;}
     }
 }
 ?>
