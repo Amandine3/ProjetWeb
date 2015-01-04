@@ -9,7 +9,7 @@ require '../classes/SeConnecter.class.php';
 $db = Connexion::getInstance($dsn,$user,$pass);
 
 try{    
-    $mg = new Login($db);
+    $mg = new SeConnecter($db);
     $ret=$mg->estAdmin($_POST['login'],$_POST['password']);
     if($ret==1)
     {

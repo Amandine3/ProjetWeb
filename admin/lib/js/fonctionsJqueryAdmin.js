@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#login").focus();
     $("#annuler").click(function () {
         $("#login_form").fadeOut("2000");
-        window.location.href = "../pet-sitting/index.php";
+        window.location.href = "../PhpProjetWeb/index.php";
     });
 
     $('input#submit_login').on('click', function (event) {
@@ -22,8 +22,8 @@ $(document).ready(function () {
                 type: 'POST',
                 data: data_form, // si sérialisé
                 //data: "login=" + login + "&password=" + password, // si pas sérialisé
-                dataType: "json",
-                url: './lib/php/ajax/AjaxLogin.php',
+                //dataType: "json",
+                url: './lib/php/ajax/AjaxSeConnecter.php',
                 success: function (data_du_php) {
                     if (data_du_php.retour == 1) {
                         $('#login_form').remove();
@@ -35,7 +35,7 @@ $(document).ready(function () {
                         $('#message').html("--Données incorrectes");
                     }
                 },
-                fail: function () {
+                error: function () {
                     //alert('Raté');
                 }
             });

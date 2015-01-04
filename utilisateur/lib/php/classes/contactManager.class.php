@@ -10,7 +10,7 @@ class contactManager extends contact {
     
     public function addContact(array $data) {
         //var_dump($data);
-        $query="select add_reservation (:nom_maitre,:email_maitre,:date_debut,:nombre_jours,:type_animal,:nom_animal,:id_jouet_pet,:regime) as retour" ;
+        $query="select add_contact (:nom_maitre,:email_maitre,:date_debut,:nombre_jours,:type_animal,:nom_animal,:id_jouet_pet,:regime) as retour" ;
         try {
             $id=null;
             $statement = $this->_db->prepare($query);		
