@@ -9,23 +9,18 @@ class contactManager extends contact {
     }
     
     public function addContact(array $data) {
+        echo 'DANS ADDCONTACT (de contactManager)';
         //var_dump($data);
-        $query="select add_contact (:nom_maitre,:email_maitre,:date_debut,:nombre_jours,:type_animal,:nom_animal,:id_jouet_pet,:regime) as retour" ;
+        $query="select add_contact(:type,:nom_client,:pren_client,:comm_client,:email) as retour" ;
         try {
             $id=null;
             $statement = $this->_db->prepare($query);		
-            $statement->bindValue(1, $data['nom_maitre'], PDO::PARAM_STR);
-            $statement->bindValue(2, $data['email_maitre'], PDO::PARAM_STR);
-            $statement->bindValue(3, $data['date_debut'], PDO::PARAM_STR);
-            $statement->bindValue(4, $data['nombre_jours'], PDO::PARAM_INT);
-            $statement->bindValue(5, $data['type_animal'], PDO::PARAM_STR);
-            $statement->bindValue(6, $data['nom_animal'], PDO::PARAM_STR);
-            $statement->bindValue(7, $data['id_jouet_pet'], PDO::PARAM_STR);
-            $statement->bindValue(8, $data['regime'], PDO::PARAM_BOOL);
-            
-            
-           
-           
+            $statement->bindValue(1, $data['type'], PDO::PARAM_INT);
+            $statement->bindValue(2, $data['nom_client'], PDO::PARAM_STR);
+            $statement->bindValue(3, $data['pren_client'], PDO::PARAM_STR);
+            $statement->bindValue(4, $data['comm_client'], PDO::PARAM_STR);
+            $statement->bindValue(5, $data['email'], PDO::PARAM_STR);
+
             $statement->execute();
             $retour = $statement->fetchColumn(0);
             return $retour;

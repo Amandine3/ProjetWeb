@@ -1,6 +1,36 @@
 <h2 id="titre_page"> Formulaire de contact </h2>
 <h3> Afin de nous contacter, veuillez répondre à ce formulaire et notre équipe vous joindra par e-mail </h3>
 
+<?php
+
+if(isset($_GET['submit_reserv'])) {
+    echo '1111dans IFSSET CONTACT.php';
+    extract($_GET,EXTR_OVERWRITE);
+    echo '222dans IFSSET CONTACT.php';
+    if(trim($type)!='' && trim($nom_client)!='' && trim($pren_client)!='' && trim($comm_client)!='' && trim($email)!='') {
+        echo 'IF TRIM dans contact.php';
+        $mg2 = new contactManager($db);
+        echo 'avant addContact dans contact.php';
+        $retour = $mg2->addContact($_GET);
+        echo 'apres addContact dans contact.php';
+        if($retour==1){
+            $texte="<span class='txtGras'>Votre demande a bien été enregistrée.<br />Nous vous contacterons dans les meilleurs délais.</span>";
+        }
+        else if ($retour==2) {
+            $texte="<span class='txtGras'>Déjà dans la base de données</span>";
+        }    
+        if(isset($_SESSION['form'])) {unset($_SESSION['form']);}                
+    }
+    else {
+        $texte="Complétez tous les champs.";
+        if(trim($nom_maitre)!='') {$_SESSION['form']['nom_maitre']=$nom_maitre;}
+        if(trim($email_maitre)!='') {$_SESSION['form']['email_maitre']=$email_maitre;}
+        if(trim($date_debut)!='') {$_SESSION['form']['date_debut']=$date_debut;}
+        if(trim($nom_animal)!='') {$_SESSION['form']['nom_animal']=$nom_animal;}
+        if($nombre_jours!='') {$_SESSION['form']['nombre_jours']=$nombre_jours;}   
+    }
+}
+?>
 <!--creer une table contact afin de mettre ces données dans la DB ?-->
 <section id="leform">
     <form id="form_contact" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
