@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
    //LISTE DEROULANTE SANS VALIDATION
   //cacher le bouton Go du form. liste déroulante ds réservation
@@ -18,18 +17,18 @@ $(document).ready(function() {
    
   //VERIFIER FORMULAIRE AVEC REGEX --> privilégier validate.js
   //www.sitepoint.com/jquery-basic-regex-selector-examples/ 
-  $('input#nom_client').blur(function() {
+  $('input#nom_maitre').blur(function() {
      var regex= new RegExp(/[0-9\?!\.,;]/);
      var ch = $(this).val();
      if(regex.test(ch)){   
-         $('input#nom_client').val('');
+         $('input#nom_maitre').val('');
          $('div#error').css({
              'color':'red',
              'font-size' : '70%',
              'font-weight':'bold'
          }),
          $('div#error').html("Veuillez n'entrer que des lettres"),
-         $('input#nom_client').focus(function() {
+         $('input#nom_maitre').focus(function() {
              $('div#error').fadeOut();
          })         
      }     
@@ -41,14 +40,25 @@ $(document).ready(function() {
       
       event.preventDefault();// ou return false à la fin
       //alert("arrivé");
-      var type = $('input#type').val();
+      var type;
       var nom_client = $('input#nom_client').val();
       var pren_client = $('input#pren_client').val();
-      var comm_client = $('input#comm_client').val();
+      var comm_client = document.getElementById('comm_client').value;
       var email=$('input#email').val();
-
-      if($.trim(type)!='' && $.trim(nom_client)!='' && $.trim(pren_client)!='' && $.trim(comm_client)!='' && $.trim(email)!='') {
-          
+      if($('input#Homme').is(':checked')){
+          type=0;
+      }
+      if($('input#Femme').is(':checked')){
+          type=1;
+      }
+      document.write( type);
+      document.write(nom_client);
+      document.write(pren_client);
+      document.write(comm_client);
+      document.write(email);
+      
+      if((type==1 || type==0) && $.trim(nom_client)!='' && $.trim(pren_client)!='' && $.trim(comm_client)!='' && $.trim(email)!='') {
+          document.write('Je passe dans le premier if');
           var data_form=$('form#form_contact').serialize();
           //alert(data_form);
           $.ajax({               
@@ -59,9 +69,10 @@ $(document).ready(function() {
             //callback exécuté en cas de succès uniquement :
             success : function(data){ //data : ce qui est retourné par le fichier php 
                 //effacer les valeurs
+                document.write("Ok");
                 $('form').find('input[type=text]').val('');
                 $('form').find('input[type=email]').val('');
-                $('form').find('input[type=date]').val('');
+                //$('form').find('input[type=date]').val('');
                 //$('input[name="type_animal"]').prop('checked', false);
                 //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
                 //$("select#id_jouet_pet").val("");
@@ -91,6 +102,7 @@ $(document).ready(function() {
             },
           //callback en cas d'échec
             fail : function() {
+                document.write("Planté");
               alert("échec url");           
           }
         })//fin $.ajax    
@@ -101,7 +113,13 @@ $(document).ready(function() {
                         'color':'red',
                         'font-weight':'bold'
                     }),
-          $('section#resultat').html("Remplissez tous les champs.");                
+                    document.write( type);
+      document.write(nom_client);
+      document.write(pren_client);
+      document.write(comm_client);
+      document.write(email);
+          $('section#resultat').html("Remplissez tous les champs !"+ $('input#type').val() + $('input#nom_client').val() + $('input#pren_client').val() + $('input#email').val() + $('input#comm_client').val()); 
+          
       }
     });    
         
