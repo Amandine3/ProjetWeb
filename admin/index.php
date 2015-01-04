@@ -35,10 +35,12 @@ foreach(glob('./lib/js/jquery/*.js') as $js) {
     
     <?php //var_dump($_SESSION);
     //session_destroy();?>
-    <section id="page">              
+    <section id="all_all">              
 	<header id="header">
             <img src="./images/sonic-banniere - Copie.png" alt="Banniere" id="image_header"/><br />	
-            <section id="deconnexion">
+            <section id="deconnexion"> 
+            <!-- section id="deconnexion">-->
+            
                 <?php
                     if(isset($_SESSION['admin'])){
                         ?><a href="./lib/php/disconnect.php">Déconnexion</a>
@@ -60,9 +62,11 @@ foreach(glob('./lib/js/jquery/*.js') as $js) {
             
         //print "session : ".$_SESSION['admin'];
         ?>
-        <section id="colGauche">
-            <nav>
-		<ul id="menu"> 
+        <section id="exemple">
+            <div class="exemple" id="ex2">
+               <ul class="nav">
+            <!--<nav>-->
+		<!--<ul id="menu"> -->
 		<?php 
                     if(file_exists('./lib/php/menu.php')){
                         include ('./lib/php/menu.php');
@@ -70,14 +74,14 @@ foreach(glob('./lib/js/jquery/*.js') as $js) {
                 ?>
 					
 		</ul>
-            </nav>
+            <!--</nav>-->
 	</section>
        
-	<section id="contenu">
+	<section id="all">
             
             
             
-            <div id="main">
+            <div class="exemple" id="ex2">
                 <?php
                // var_dump($_GET);
                // var_dump($_SESSION);
