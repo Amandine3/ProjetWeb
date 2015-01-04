@@ -25,7 +25,7 @@ class SeConnecter
         } catch(PDOException $e) {
             print "Echec de la requ&ecirc;te.".$e;
         }
-        return $retour;
+        return $ret;
     }
 }
 ?>

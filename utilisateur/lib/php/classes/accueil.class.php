@@ -28,11 +28,7 @@ class Accueil {
       }
   }
   
-  public function gettexte()
-  {
-      return $_texte;
-  }
-  
+ 
   //setters
   public function __set ($nom, $valeur) {
      $this->_attributs[$nom] = $valeur;    
