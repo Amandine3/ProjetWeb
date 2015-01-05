@@ -28,7 +28,7 @@ $(document).ready(function () {
 
                 success: function (data_du_php)
                 {
-                    if (data_du_php.retour == 1)
+                    if (data_du_php.ret == 1)
                     {
                         $('#login_form').remove();
                         //$('header#header').removeClass('reduire_opacity');

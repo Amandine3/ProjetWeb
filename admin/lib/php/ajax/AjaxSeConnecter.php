@@ -8,21 +8,19 @@ require '../classes/SeConnecter.class.php';
 
 $db = Connexion::getInstance($dsn,$user,$pass);
 
-try{    
+try{ 
     $mg = new SeConnecter($db);
     $ret=$mg->estAdmin($_POST['login'],$_POST['password']);
     if($ret==1)
     {
         $_SESSION['admin']=1;
         $_SESSION['page']="accueil";
-        alert('OK if');
                //print "session : ".$_SESSION['admin'];
     }
     print json_encode(array('ret' => $ret)); 
 }
 catch(PDOException $e)
 {
-    alert($e);
 }
 
 ?>
