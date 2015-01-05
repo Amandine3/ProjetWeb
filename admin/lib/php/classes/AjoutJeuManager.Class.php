@@ -149,7 +149,7 @@ class AjoutJeuManager extends AjoutJeu {
         try
         {
             
-	    $query="SELECT nomPlateForme FROM plateforme";
+	    $query="SELECT nomplateForme FROM plateforme";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
         } 
