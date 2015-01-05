@@ -1,10 +1,12 @@
 <?php
 
-class AjoutJeuManager extends AjoutJeu {
+class AjoutJeuManager extends AjoutJeu
+{
     private $_db;
+    private $_IdDeveloppeur=array();
     private $_IdCategorie=array();
     private $_Categorie=array();
-    private $_IdDeveloppeur=array();
+
     private $_Developpeur=array();
     private $_IdPlateforme=array();
     private $_Plateforme=array();
@@ -29,7 +31,7 @@ class AjoutJeuManager extends AjoutJeu {
         while($data = $resultset->fetch()){     
             try
             {
-                $_IdCategorie[] = new Accueil($data);
+                $_IdCategorie[] = new ajoutjeu($data);
 
             } 
             catch(PDOException $e)
@@ -55,7 +57,7 @@ class AjoutJeuManager extends AjoutJeu {
         while($data = $resultset->fetch()){     
             try
             {
-                $_Categorie[] = new Accueil($data);
+                $_Categorie[] = new ajoutjeu($data);
 
             } 
             catch(PDOException $e)
@@ -82,7 +84,7 @@ class AjoutJeuManager extends AjoutJeu {
         while($data = $resultset->fetch()){     
             try
             {
-                $_IdDeveloppeur[] = new Accueil($data);
+                $_IdDeveloppeur[] = new ajoutjeu($data);
 
             } 
             catch(PDOException $e)
@@ -108,7 +110,7 @@ class AjoutJeuManager extends AjoutJeu {
      while($data = $resultset->fetch()){     
          try
          {
-             $_Developpeur[] = new Accueil($data);
+             $_Developpeur[] = new ajoutjeu($data);
 
          } 
          catch(PDOException $e)
@@ -134,7 +136,7 @@ class AjoutJeuManager extends AjoutJeu {
      while($data = $resultset->fetch()){     
          try
          {
-             $_IdPlateforme[] = new Accueil($data);
+             $_IdPlateforme[] = new ajoutjeu($data);
 
          } 
          catch(PDOException $e)
@@ -160,7 +162,7 @@ class AjoutJeuManager extends AjoutJeu {
         while($data = $resultset->fetch()){     
             try
             {
-                $_Plateforme[] = new Accueil($data);
+                $_Plateforme[] = new ajoutjeu($data);
 
             } 
             catch(PDOException $e)

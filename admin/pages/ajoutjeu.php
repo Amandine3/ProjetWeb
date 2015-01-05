@@ -60,7 +60,7 @@ if(isset($_GET['submit_reserv'])) {
                 $idcat=$aj->getCategId();
                 $cat=$aj->getCateg();
                 $idpl=$aj->getPlateformeId();
-                $pl=$aj->getPlateforme();
+                $pl=$aj->getPLateform();
             ?>
             <tr>
                 <td>D&eacuteveloppeur :  </td>
@@ -68,7 +68,9 @@ if(isset($_GET['submit_reserv'])) {
                         <?php
                             for($i=0;$i<count($iddev);$i++)
                             {
-                                echo "<option value={$iddev[$i]}>{$dev[$i]}</option>";
+                                $var = $iddev[$i]->iddev;
+                                $var2 = $dev[$i]->nomdev;
+                                print "<option value={$var}>{$var2}</option>";
                             }
                         ?>
                     <!--rajouter les developpeur de la base de donnee-->
@@ -81,7 +83,9 @@ if(isset($_GET['submit_reserv'])) {
                         <?php
                             for($i=0;$i<count($idcat);$i++)
                             {
-                                echo "<option value={$idcat[$i]}>{$cat[$i]}</option>";
+                                $var = $idcat[$i]->idcat;
+                                $var2 = $cat[$i]->genre;  
+                                echo "<option value={$var}>{$var2}</option>";
                             }
                         ?>
                     <!--rajouter les Categorie de la base de donnee-->
@@ -94,7 +98,9 @@ if(isset($_GET['submit_reserv'])) {
                         <?php
                             for($i=0;$i<count($idpl);$i++)
                             {
-                                echo "<option value={$idpl[$i]}>{$pl[$i]}</option>";
+                                $var=$idpl[$i]->idplateforme;
+                                $var2=$pl[$i]->nomplateforme;
+                                echo "<option value={$var}>{$var2}</option>";
                             }
                         ?>
                     <!--rajouter les PLateforme de la base de donnee-->
@@ -103,7 +109,7 @@ if(isset($_GET['submit_reserv'])) {
             
             <tr>
                 <td colspan="2">
-                <input type="submit" name="submit_reserv" id="submit_reserv" value="Cliquez ici pour nous contacter" />
+                <input type="submit" name="submit_reserv" id="submit_reserv" value="Cliquez ici pour ajouter un jeu" />
                 &nbsp;&nbsp;&nbsp;
                 <input type="reset" id="reset" value="R&eacute;initialiser le formulaire" />
                 </td>
