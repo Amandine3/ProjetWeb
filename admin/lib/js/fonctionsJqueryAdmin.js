@@ -14,7 +14,7 @@ $(document).ready(function () {
     $('input#submit_login').on('click', function (event) {
         login = $("#login").val();
         password = $("#password").val();
-        if ($.trim(login) != '' && $.trim(password != '')) {
+        if ( ($.trim(login) != '') && ($.trim(password != ''))) {
 
             var data_form = $('form#form_auth').serialize();
             alert(data_form);
