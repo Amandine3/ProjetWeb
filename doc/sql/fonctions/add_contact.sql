@@ -1,4 +1,4 @@
-create or replace function add_contact (int,text,text,text,text) returns integer
+create or replace function add_contact (text,text,text,text,text) returns integer
 as
 '
   declare f_sexe alias for $1;

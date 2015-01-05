@@ -51,14 +51,8 @@ $(document).ready(function() {
       if($('input#Femme').is(':checked')){
           type=1;
       }
-      document.write( type);
-      document.write(nom_client);
-      document.write(pren_client);
-      document.write(comm_client);
-      document.write(email);
       
       if((type==1 || type==0) && $.trim(nom_client)!='' && $.trim(pren_client)!='' && $.trim(comm_client)!='' && $.trim(email)!='') {
-          document.write('Je passe dans le premier if');
           var data_form=$('form#form_contact').serialize();
           //alert(data_form);
           $.ajax({               
@@ -69,34 +63,34 @@ $(document).ready(function() {
             //callback exécuté en cas de succès uniquement :
             success : function(data){ //data : ce qui est retourné par le fichier php 
                 //effacer les valeurs
-                document.write("Ok");
                 $('form').find('input[type=text]').val('');
                 $('form').find('input[type=email]').val('');
                 //$('form').find('input[type=date]').val('');
-                //$('input[name="type_animal"]').prop('checked', false);
+                $('input[name="type"]').prop('checked', false);
                 //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
                 //$("select#id_jouet_pet").val("");
                 //$("select#nombre_jours").val('2'); 
-                if(data.retour === 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
+                if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
-                        'color':'green',
+                        
+                        'color':'red',
                         'font-weight':'bold'
                     }),
-                    $('section#resultat').html("Votre demande a bien été envoyée.");
+                    $('section#resultat').html("Votre demande a bien été envoyée ! ");
                 }
-                else if(data.retour === 2){    
+                else if(data.retour == 2){    
                     $('section#resultat').css({
                         'color':'red',
                         'font-weight':'bold'
                     }),
-                    $('section#resultat').html("Votre réservation figure déjà dans la base de données");
+                    $('section#resultat').html("Déjà dans la base de données...");
                 }
                 else {  
                     $('section#resultat').css({
                         'color':'red',
                         'font-weight':'bold'
                     }),
-                    $('section#resultat').html("Echec de la réservation.");
+                    $('section#resultat').html("Echec.");
                 }
                // $('form#form_reservation').reset(); // ne fonctionne pas
             },
@@ -113,14 +107,10 @@ $(document).ready(function() {
                         'color':'red',
                         'font-weight':'bold'
                     }),
-                    document.write( type);
-      document.write(nom_client);
-      document.write(pren_client);
-      document.write(comm_client);
-      document.write(email);
-          $('section#resultat').html("Remplissez tous les champs !"+ $('input#type').val() + $('input#nom_client').val() + $('input#pren_client').val() + $('input#email').val() + $('input#comm_client').val()); 
+          $('section#resultat').html("Remplissez tous les champs !"); 
           
       }
+      
     });    
         
   //cacher ou afficher une div  

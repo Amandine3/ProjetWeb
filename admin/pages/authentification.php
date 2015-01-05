@@ -5,11 +5,14 @@ if(isset($_POST['submit_login'])) {
     if($retour==1) {
         $_SESSION['admin']=1;
         $message="Authentifié!";
-        header('Location: http://localhost/PhpProjetWeb/admin/index.php');
+         header('Location: http://localhost/PhpProjetWeb/admin/index.php');
+        //exit;
+        
     } 
     else {
         $message="Données incorrectes";
     }
+    
 }
 ?>
 <section id="message"><?php if(isset($message)) print $message;?></section>

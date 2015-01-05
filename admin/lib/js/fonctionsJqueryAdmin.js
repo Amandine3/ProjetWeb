@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#login").focus();
     $("#annuler").click(function () {
         $("#login_form").fadeOut("2000");
-        window.location.href = "../PhpProjetWeb/index.php";
+        window.location.href = "../utilisateur/index.php";
     });
 
     $('input#submit_login').on('click', function (event) {
@@ -20,23 +20,29 @@ $(document).ready(function () {
             alert(data_form);
             $.ajax({
                 type: 'POST',
-                data: data_form, // si sérialisé
-                //data: "login=" + login + "&password=" + password, // si pas sérialisé
+                //data: data_form, // si sérialisé
+                data: "login=" + login + "&password=" + password, // si pas sérialisé
                 //dataType: "json",
                 url: './lib/php/ajax/AjaxSeConnecter.php',
-                success: function (data_du_php) {
-                    if (data_du_php.retour == 1) {
+                
+
+                success: function (data_du_php)
+                {
+                    if (data_du_php.retour == 1)
+                    {
                         $('#login_form').remove();
                         //$('header#header').removeClass('reduire_opacity');
                         window.location.href = "./index.php";
                     }
-                    else {
+                    else
+                    {
                         //alert('erreur');
                         $('#message').html("--Données incorrectes");
                     }
                 },
-                error: function () {
-                    //alert('Raté');
+                error: function ()
+                {
+                   //alert('Raté');
                 }
             });
         }

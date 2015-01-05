@@ -9,7 +9,6 @@ require '../classes/contactManager.class.php';
 $db = Connexion::getInstance($dsn,$user,$pass);
 
 try{
-    echo 'Je suis la aaaaa';
     $mg = new ContactManager($db);
     /*if(!isset($_GET['regime'])) { 'si il coche pas alors l'animal n'a pas de regime special
         $_GET['regime']=FALSE;

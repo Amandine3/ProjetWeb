@@ -12,7 +12,6 @@ class Connexion
             try {
                 self::$_instance = new PDO($dsn, $user, $pass);
                 self::$_instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            print "OK ";
                 
             } catch (PDOException $e) {
                 print "Erreur de connexion : ".$e->getMessage();

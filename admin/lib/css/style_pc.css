@@ -66,3 +66,12 @@ footer {
 header img {
 	width:100%;
 }
+#login_form
+{
+    background-color: blueviolet;
+    width : 50%;
+    height : 135px;
+    /*text-align:center;*/
+    margin-left: 25%;
+    margin-top : 5%;
+}

@@ -18,11 +18,11 @@ $(document).ready(function() {
    
   //VERIFIER FORMULAIRE AVEC REGEX --> privilégier validate.js
   //www.sitepoint.com/jquery-basic-regex-selector-examples/ 
-  $('input#nom_maitre').blur(function() {
+  $('input#nom_client').blur(function() {
      var regex= new RegExp(/[0-9\?!\.,;]/);
      var ch = $(this).val();
      if(regex.test(ch)){   
-         $('input#nom_maitre').val('');
+         $('input#nom_client').val('');
          $('div#error').css({
              'color':'red',
              'font-size' : '70%',
@@ -99,7 +99,7 @@ $(document).ready(function() {
                         'color':'red',
                         'font-weight':'bold'
                     }),
-          $('section#resultat').html("Remplissez tous les champs.");                
+          $('section#resultat').html("la la la Remplissez tous les champs !!.");                
       }
     });    
         
