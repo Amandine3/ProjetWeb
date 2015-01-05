@@ -10,7 +10,9 @@ if(isset($_POST['submit_login'])) {
         
     } 
     else {
+                $message=$retour;
         $message="Données incorrectes";
+
     }
     
 }

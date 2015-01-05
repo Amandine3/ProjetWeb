@@ -15,10 +15,14 @@ try{
     {
         $_SESSION['admin']=1;
         $_SESSION['page']="accueil";
+        alert('OK if');
                //print "session : ".$_SESSION['admin'];
     }
     print json_encode(array('ret' => $ret)); 
 }
-catch(PDOException $e){}
+catch(PDOException $e)
+{
+    alert($e);
+}
 
 ?>
