@@ -29,6 +29,7 @@ if(isset($_GET['submit_jeu'])) {
 <img src="../admin/images/jeux.jpg" alt="Image de jeux" />
 &nbsp;
 <!--creer une table contact afin de mettre ces données dans la DB ?-->
+<section id="resultat" class="txtGreen"><?php if(isset($texte)) print $texte; ?></section>
 <section id="leform">
     <form id="form_ajout_jeu" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
         <fieldset id="Client">

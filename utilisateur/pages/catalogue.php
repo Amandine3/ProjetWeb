@@ -2,6 +2,7 @@
 <?php
 if(isset($_GET['submitcatalogue'])) {
     extract($_GET,EXTR_OVERWRITE);
+    echo 'id_client : + $id_client + achat: + $achat';
       if(trim($id_client)!='')
 	  {	  
             $mg2 = new achatManager($db);

@@ -10,16 +10,23 @@ if(isset($_GET['submitcatalogue'])) {
             {
                 $texte="<span class='txtGras'>Votre demande a bien été enregistrée</span>";
             }
-			if(isset($_SESSION['form'])) {unset($_SESSION['form']);}
-            else
+	    else if ($retour==2){
+                $texte="<span class='txtGras'>L'idclient n'a pas pu être trouvé</span>";
+            }
+            else 
             {
                 $texte="Complétez tous les champs.";
                 if(trim($id_client)!='') {$_SESSION['form']['id_client']=$id_client;}
                 
             }
+            if(isset($_SESSION['form'])) {unset($_SESSION['form']);} 
         }
-	}
+    }
 ?>
+
+  
+        
+<section id="resultat" class="txtGreen"><?php if(isset($texte)) print $texte; ?></section>
 <form id="formachat" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
 <table>
      <tr>
@@ -54,7 +61,7 @@ if(isset($_GET['submitcatalogue'])) {
         $pl=$cat[$i]->pl;
         $idj=$cat[$i]->idjeux;
         $nom="achat";
-        $id="cc";
+        $id="achat";
         $ty="radio";
         print "<tr><td>{$titre}</td><td>{$prix}</td><td>{$nj}</td><td>{$cat2}</td><td>{$dev}</td><td>{$pl}</td><td><input type={$ty} name={$nom} id={$id} value={$idj}/></td></tr>";
     }

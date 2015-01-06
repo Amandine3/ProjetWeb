@@ -1,6 +1,4 @@
 <h2 id="titre_page"> Rechercher un jeu </h2>
-<h3> Afin de nous contacter, veuillez répondre à ce formulaire et notre équipe vous joindra par e-mail </h3>
-
 <?php
 
 if(isset($_GET['submit_rech'])) {
@@ -49,15 +47,12 @@ if(isset($_GET['submitcatalogue'])) {
                 
             }
         }
-	}
+    }
+}
 ?>
 <form id="formachat" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
 <table>
      <tr>
-         <?php
-            $cm=new catManager($db);
-            $cat=$cm->getCat($_GET);
-         ?>
                 <td>Votre ID : </td>
                 <td>
                     <?php if(isset($_SESSION['form']['id_client'])) { ?>
@@ -102,6 +97,7 @@ if(isset($_GET['submitcatalogue'])) {
 </table>
 </form>
 <?php} ?></section>
+<?php if (isset($cat)){?>
 <section id="leform">
     <form id="form_rech" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
         <fieldset id="recherche">
@@ -169,3 +165,4 @@ if(isset($_GET['submitcatalogue'])) {
         </fieldset>
     </form>
 </section>
+<?php } ?>

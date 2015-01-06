@@ -341,7 +341,7 @@ $(document).ready(function() {
       
       event.preventDefault();// ou return false à la fin
       //alert("arrivé");
-      var Id_client = $('input#Id_client').val();
+      var Id_client = $('input#id_client').val();
       
       if($.trim(Id_client)!='') {
           var data_form=$('form#formachat').serialize();
@@ -361,7 +361,7 @@ $(document).ready(function() {
                 //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
                 //$("select#id_jouet_pet").val("");
                 //$("select#nombre_jours").val('2'); 
-                if(data.retour == 0) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
+                if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         
                         'color':'red',
