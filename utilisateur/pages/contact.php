@@ -67,7 +67,7 @@ if(isset($_GET['submit_reserv'])) {
                     }
                     else {
                         ?>
-                        <input type="text" name="pren_client" id="pren_client" placeholder="Votre nom" required/>
+                        <input type="text" name="pren_client" id="pren_client" placeholder="Votre Prenom" required/>
                         <?php
                     }
                     ?>
