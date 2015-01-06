@@ -1,5 +1,5 @@
 <?php
-class catManager extends Accueil {
+class catManager extends cat {
     private $_db;
     private $_accueilArray=array();
     
@@ -12,7 +12,7 @@ class catManager extends Accueil {
         try
         {
             
-	    $query="SELECT mot FROM accueilmots";
+	    $query="SELECT * FROM jeuxcat";
             //select * from jeu where avec categorie...
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
@@ -24,7 +24,7 @@ class catManager extends Accueil {
         while($data = $resultset->fetch()){     
             try
             {
-                $_accueilArray[] = new Accueil($data);
+                $_accueilArray[] = new cat($data);
             } 
             catch(PDOException $e)
             {
