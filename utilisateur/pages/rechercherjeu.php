@@ -28,7 +28,7 @@ if(isset($_GET['submit_rech'])) {
 	}
 }
 ?>
-<section id="resultat" class="txtGreen"><?php if(isset($cat)){
+<section id="resultat" class="txtGreen"><?php
 if(isset($_GET['submitcatalogue'])) {
     extract($_GET,EXTR_OVERWRITE);
       if(trim($id_client)!='')
@@ -48,8 +48,8 @@ if(isset($_GET['submitcatalogue'])) {
             }
         }
     }
-}
-?>
+
+if(isset($cat)){?>
 <form id="formachat" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
 <table>
      <tr>
@@ -96,7 +96,8 @@ if(isset($_GET['submitcatalogue'])) {
 
 </table>
 </form>
-<?php} ?></section>
+<?php}
+ ?></section>
 <?php if (isset($cat)){?>
 <section id="leform">
     <form id="form_rech" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
