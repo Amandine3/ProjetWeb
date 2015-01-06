@@ -8,8 +8,8 @@ require './lib/php/verifier_connexion.php';
 if(isset($_GET['submit_dev'])) {
     
     extract($_GET,EXTR_OVERWRITE);
-    if(trim($type)!='' && trim($nom_client)!='' && trim($pren_client)!='' && trim($comm_client)!='' && trim($email)!='') {
-        $mg2 = new ajoutDevManager($db);
+    if( trim($Nom_dev)!='' && trim($Pays_dev)!='') {
+        $mg2 = new AjoutDevManager($db);
         $retour = $mg2->addDev($_GET);
         if($retour==1){
             $texte="<span class='txtGras'>Developpeur bien ajouté !<br /></span>";

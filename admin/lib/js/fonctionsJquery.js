@@ -187,6 +187,76 @@ $(document).ready(function() {
           
       }
       
+    });
+    
+    //ENVOYER FORMULAIRE AJOUT DEVELOPPEUR PAR AJAX
+  
+   $('input#submit_dev').on ('click',function(event) {
+      
+      event.preventDefault();// ou return false à la fin
+      //alert("arrivé");
+      var Nom_dev = $('input#Nom_dev').val();
+      var Pays_dev = $('input#Pays_dev').val();
+      
+      if($.trim(Nom_dev)!='' && $.trim(Pays_dev)!='') {
+          var data_form=$('form#form_ajout_dev').serialize();
+          //alert(data_form);
+          $.ajax({               
+            type : 'GET',            
+            data : data_form,
+            dataType : "json",//type du retour des données par le php
+            url : '../admin/lib/php/ajax/AjaxDev_submit.php',
+            //callback exécuté en cas de succès uniquement :
+            success : function(data){ //data : ce qui est retourné par le fichier php 
+                //effacer les valeurs
+                $('form').find('input[type=text]').val('');
+                $('form').find('input[type=email]').val('');
+                //$('form').find('input[type=date]').val('');
+                $('input[name="type"]').prop('checked', false);
+                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
+                //$("select#id_jouet_pet").val("");
+                //$("select#nombre_jours").val('2'); 
+                if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
+                    $('section#resultat').css({
+                        
+                        'color':'red',
+                        'font-weight':'bold'
+                    }),
+                    $('section#resultat').html("Votre demande a bien été envoyée ! ");
+                }
+                else if(data.retour == 2){    
+                    $('section#resultat').css({
+                        'color':'red',
+                        'font-weight':'bold'
+                    }),
+                    $('section#resultat').html("Déjà dans la base de données...");
+                }
+                else {  
+                    $('section#resultat').css({
+                        'color':'red',
+                        'font-weight':'bold'
+                    }),
+                    $('section#resultat').html("Echec.");
+                }
+               // $('form#form_reservation').reset(); // ne fonctionne pas
+            },
+          //callback en cas d'échec
+            fail : function() {
+                document.write("Planté");
+              alert("échec url");           
+          }
+        })//fin $.ajax    
+      } //fin if
+      //si champs manquants
+      else {
+         $('section#resultat').css({
+                        'color':'red',
+                        'font-weight':'bold'
+                    }),
+          $('section#resultat').html("Remplissez tous les champs !"); 
+          
+      }
+      
     });    
         
   //cacher ou afficher une div  
