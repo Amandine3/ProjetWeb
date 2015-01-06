@@ -176,8 +176,8 @@ class AjoutJeuManager extends AjoutJeu
  
  
  public function addjeu(array $data)
-         {
-        echo 'DANS ADDjeu (de contactManager)';
+    {
+        
         //var_dump($data);
         $query="select addjeu(:Titre_jeu, :Prix_jeu, :Joueur_jeu, :Categorie_jeu, :Developpeur_jeu, :Plateforme_jeu) as retour" ;
         try {
