@@ -26,6 +26,10 @@ if(isset($_GET['submit_dev'])) {
     }
 }
 ?>
+
+
+<img src="../admin/images/developpeurImage.jpg" alt="Image de developpeur" />
+&nbsp;
 <!--creer une table contact afin de mettre ces données dans la DB ?-->
 <section id="leform">
     <form id="form_ajout_dev" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">

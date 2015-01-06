@@ -5,18 +5,13 @@ require './lib/php/verifier_connexion.php';
 
 <?php
 
-if(isset($_GET['submit_reserv'])) {
-    echo '1111dans IFSSET CONTACT.php';
+if(isset($_GET['submit_jeu'])) {
     extract($_GET,EXTR_OVERWRITE);
-    echo '222dans IFSSET CONTACT.php';
-    if(trim($type)!='' && trim($nom_client)!='' && trim($pren_client)!='' && trim($comm_client)!='' && trim($email)!='') {
-        echo 'IF TRIM dans contact.php';
-        $mg2 = new contactManager($db);
-        echo 'avant addContact dans contact.php';
-        $retour = $mg2->addContact($_GET);
-        echo 'apres addContact dans contact.php';
+    if(trim($Titre_jeu)!='' && trim($Prix_jeu)!='' && trim($Joueur_jeu)!='') {
+        $mg2 = new AjoutJeuManager($db);
+        $retour = $mg2->addjeu($_GET);
         if($retour==1){
-            $texte="<span class='txtGras'>Votre demande a bien été enregistrée.<br />Nous vous contacterons dans les meilleurs délais.</span>";
+            $texte="<span class='txtGras'>Votre demande a bien été enregistrée.<br /></span>";
         }
         else if ($retour==2) {
             $texte="<span class='txtGras'>Déjà dans la base de données</span>";
@@ -25,14 +20,14 @@ if(isset($_GET['submit_reserv'])) {
     }
     else {
         $texte="Complétez tous les champs.";
-        if(trim($type)!='') {$_SESSION['form']['type']=$type;}
-        if(trim($nom_client)!='') {$_SESSION['form']['nom_client']=$nom_client;}
-        if(trim($pren_client)!='') {$_SESSION['form']['pren_client']=$pren_client;}
-        if(trim($comm_client)!='') {$_SESSION['form']['comm_client']=$comm_client;}
-        if(trim($email)!='') {$_SESSION['form']['email']=$email;}
+        if(trim($Titre_jeu)!='') {$_SESSION['form']['Titre_jeu']=$Titre_jeu;}
+        if(trim($Prix_jeu)!='') {$_SESSION['form']['Prix_jeu']=$Prix_jeu;}
+        if(trim($Joueur_jeu)!='') {$_SESSION['form']['Joueur_jeu']=$Joueur_jeu;}
     }
 }
 ?>
+<img src="../admin/images/jeux.jpg" alt="Image de jeux" />
+&nbsp;
 <!--creer une table contact afin de mettre ces données dans la DB ?-->
 <section id="leform">
     <form id="form_ajout_jeu" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
@@ -40,18 +35,51 @@ if(isset($_GET['submit_reserv'])) {
         <legend class="txtMauv txtGras">Renseignements sur le jeu : </legend>
         <table>
             
-            <tr>
-                <td>Titre : </td><td><input type="text" name="Titre_jeu" id="Titre_jeu"/></td>
+           <tr>
+                <td>Titre : </td>
+                <td>
+                    <?php if(isset($_SESSION['form']['Titre_jeu'])) { ?>
+                    <input type="text" name="Titre_jeu" id="Titre_jeu" value="<?php print $_SESSION['form']['nom_client'];?>"/>
+                    <?php
+                    }
+                    else{
+                         ?>
+                        <input type="text" name="Titre_jeu" id="Titre_jeu" placeholder="Titre du jeu" required/>
+                        <?php
+                    }
+                    ?> <div id="error"></div>
+                </td>
             </tr>
           
             <tr>
                 <td>Prix : </td>
-                <td><input type="number" name="Prix_jeu" id="Prix_jeu" /></td>
+                <td>
+                     <?php if(isset($_SESSION['form']['Prix_jeu'])) { ?>
+                    <input type="number" name="Prix_jeu" id="Prix_jeu" value="<?php print $_SESSION['form']['Prix_jeu'];?>"/>
+                     <?php
+                    }
+                    else{
+                         ?>
+                        <input type="number" name="Prix_jeu" id="Prix_jeu" placeholder="Prix du jeu" required/>
+                        <?php
+                    }
+                    ?> <div id="error"></div>
+                </td>
             </tr>
             
             <tr>
                 <td>Nombre de joueur :  </td>
-                <td><input type="number" name="Joueur_jeu" id="Joueur_jeu" /></td>
+                <td><?php if(isset($_SESSION['form']['Joueur_jeu'])) { ?>
+                    <input type="number" name="Joueur_jeu" id="Joueur_jeu" value="<?php print $_SESSION['form']['Joueur_jeu'];?>" />
+                    <?php
+                    }
+                    else{
+                         ?>
+                        <input type="number" name="Joueur_jeu" id="Joueur_jeu" placeholder="Nombre de joueur du jeu" required/>
+                        <?php
+                    }
+                    ?> <div id="error"></div>
+                </td>
             </tr>
             <?php
                 $aj=new AjoutJeuManager($db);
@@ -109,7 +137,7 @@ if(isset($_GET['submit_reserv'])) {
             
             <tr>
                 <td colspan="2">
-                <input type="submit" name="submit_reserv" id="submit_reserv" value="Cliquez ici pour ajouter un jeu" />
+                <input type="submit" name="submit_jeu" id="submit_jeu" value="Cliquez ici pour ajouter un jeu" />
                 &nbsp;&nbsp;&nbsp;
                 <input type="reset" id="reset" value="R&eacute;initialiser le formulaire" />
                 </td>

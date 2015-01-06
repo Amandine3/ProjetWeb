@@ -173,7 +173,33 @@ class AjoutJeuManager extends AjoutJeu
         }
         return $_Plateforme;        
     }
- }
+ 
+ 
+ public function addjeu(array $data)
+         {
+        echo 'DANS ADDjeu (de contactManager)';
+        //var_dump($data);
+        $query="select addjeu(:Titre_jeu, :Prix_jeu, :Joueur_jeu, :Categorie_jeu, :Developpeur_jeu, :Plateforme_jeu) as retour" ;
+        try {
+            $id=null;
+            $statement = $this->_db->prepare($query);		
+            $statement->bindValue(1, $data['Titre_jeu'], PDO::PARAM_STR);
+            $statement->bindValue(2, $data['Prix_jeu'], PDO::PARAM_STR);
+            $statement->bindValue(3, $data['Joueur_jeu'], PDO::PARAM_INT);
+            $statement->bindValue(4, $data['Categorie_jeu'], PDO::PARAM_INT);
+            $statement->bindValue(5, $data['Developpeur_jeu'], PDO::PARAM_INT);
+            $statement->bindValue(6, $data['Plateforme_jeu'], PDO::PARAM_INT);
 
+            $statement->execute();
+            $retour = $statement->fetchColumn(0);
+            return $retour;
+        } 
+        catch(PDOException $e) {
+            print "Echec de l'insertion : ".$e;
+            $retour=0;
+            return $retour;
+        }   
+    }
+}
 ?>
 

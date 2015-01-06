@@ -26,6 +26,7 @@ if(isset($_GET['submit_reserv'])) {
     }
 }
 ?>
+<img src="../admin/images/cont.png" alt="Image de contact" />
 <!--creer une table contact afin de mettre ces données dans la DB ?-->
 <section id="resultat" class="txtGreen"><?php if(isset($texte)) print $texte; ?></section>
 <section id="leform">
