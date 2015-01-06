@@ -55,12 +55,12 @@ if(isset($_GET['submit_jeu'])) {
                 <td>Prix : </td>
                 <td>
                      <?php if(isset($_SESSION['form']['Prix_jeu'])) { ?>
-                    <input type="number" name="Prix_jeu" id="Prix_jeu" value="<?php print $_SESSION['form']['Prix_jeu'];?>"/>
+                    <input type="number" step="0.01" min="0" name="Prix_jeu" id="Prix_jeu" value="<?php print $_SESSION['form']['Prix_jeu'];?>"/>
                      <?php
                     }
                     else{
                          ?>
-                        <input type="number" name="Prix_jeu" id="Prix_jeu" placeholder="Prix du jeu" required/>
+                        <input type="number" step="0.01" min="0" name="Prix_jeu" id="Prix_jeu" placeholder="Prix du jeu" required/>
                         <?php
                     }
                     ?> <div id="error"></div>
