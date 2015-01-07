@@ -8,11 +8,9 @@ require '../classes/AjoutDevManager.class.php';
 
 $db = Connexion::getInstance($dsn,$user,$pass);
 
-try{
+try
+{
     $mg = new AjoutDevManager($db);
-    /*if(!isset($_GET['regime'])) {
-        $_GET['regime']=FALSE;
-    }*/
     $retour=$mg->addDev($_GET);
     print json_encode(array('retour' => $retour)); 
 }

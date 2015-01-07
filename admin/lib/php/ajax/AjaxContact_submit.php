@@ -10,9 +10,6 @@ $db = Connexion::getInstance($dsn,$user,$pass);
 
 try{
     $mg = new ContactManager($db);
-    /*if(!isset($_GET['regime'])) { 'si il coche pas alors l'animal n'a pas de regime special
-        $_GET['regime']=FALSE;
-    }*/
     $retour=$mg->addContact($_GET);
     print json_encode(array('retour' => $retour)); 
 }

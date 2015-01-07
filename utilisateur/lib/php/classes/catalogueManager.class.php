@@ -8,7 +8,6 @@ class catalogueManager extends Accueil {
         $this->_db = $db;
     }
     
-    //catalogue des fleurs
     public function getCat() {
         try
         {

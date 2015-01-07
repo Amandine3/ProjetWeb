@@ -8,7 +8,6 @@ class AccueilManager extends Accueil {
         $this->_db = $db;
     }
     
-    //catalogue des fleurs
     public function getTexteAcc() {
         try
         {

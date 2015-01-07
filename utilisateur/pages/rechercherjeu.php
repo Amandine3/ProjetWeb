@@ -29,7 +29,7 @@ if(isset($_POST['submit_rech'])) {
 	}
 	
 }
-}
+
 ?><?php
 if(isset($_GET['submitcatalogue'])) {
     extract($_GET,EXTR_OVERWRITE);

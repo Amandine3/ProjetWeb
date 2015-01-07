@@ -8,7 +8,6 @@ class achatManager extends achat {
         $this->_db = $db;
     }
     
-    //catalogue des fleurs
     public function getAchat(array $data) {
            
 	    $query="SELECT addachat(:id_client,:achat) as retour";

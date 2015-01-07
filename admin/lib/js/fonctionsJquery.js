@@ -15,7 +15,7 @@ $(document).ready(function() {
      window.location.href = refresh;
   });
    
-  //VERIFIER FORMULAIRE AVEC REGEX --> privilégier validate.js
+  //VERIFIER FORMULAIRE AVEC REGEX 
   //www.sitepoint.com/jquery-basic-regex-selector-examples/ 
   $('input#nom_client').blur(function() {
      var regex= new RegExp(/[0-9\?!\.,;]/);
@@ -39,7 +39,6 @@ $(document).ready(function() {
    $('input#submit_reserv').on ('click',function(event) {
       
       event.preventDefault();// ou return false à la fin
-      //alert("arrivé");
       var type;
       var nom_client = $('input#nom_client').val();
       var pren_client = $('input#pren_client').val();
@@ -67,9 +66,7 @@ $(document).ready(function() {
                 $('form').find('input[type=email]').val('');
                 //$('form').find('input[type=date]').val('');
                 $('input[name="type"]').prop('checked', false);
-                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
-                //$("select#id_jouet_pet").val("");
-                //$("select#nombre_jours").val('2'); 
+
                 if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         
@@ -143,9 +140,7 @@ $(document).ready(function() {
                 $('form').find('input[type=email]').val('');
                 //$('form').find('input[type=date]').val('');
                 $('input[name="type"]').prop('checked', false);
-                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
-                //$("select#id_jouet_pet").val("");
-                //$("select#nombre_jours").val('2'); 
+
                 if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         
@@ -213,9 +208,7 @@ $(document).ready(function() {
                 $('form').find('input[type=email]').val('');
                 //$('form').find('input[type=date]').val('');
                 $('input[name="type"]').prop('checked', false);
-                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
-                //$("select#id_jouet_pet").val("");
-                //$("select#nombre_jours").val('2'); 
+
                 if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         
@@ -289,9 +282,7 @@ $(document).ready(function() {
                 $('form').find('input[type=email]').val('');
                 //$('form').find('input[type=date]').val('');
                 $('input[name="type"]').prop('checked', false);
-                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
-                //$("select#id_jouet_pet").val("");
-                //$("select#nombre_jours").val('2'); 
+
                 if(data.retour >= 0) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         
@@ -358,9 +349,7 @@ $(document).ready(function() {
                 $('form').find('input[type=email]').val('');
                 //$('form').find('input[type=date]').val('');
                 $('input[name="type"]').prop('checked', false);
-                //$('input[name="regime"]').prop('checked', false); // rinitialise la valeur de la propriété (property)
-                //$("select#id_jouet_pet").val("");
-                //$("select#nombre_jours").val('2'); 
+
                 if(data.retour == 1) {  //stricte égalité type compris (sinon valeurs peuvent être de types != et rester =
                     $('section#resultat').css({
                         
