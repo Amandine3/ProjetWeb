@@ -101,7 +101,7 @@ if(isset($cat)){ ?>
 </form>
 <?php } ?>
 <?php if (!isset($cat)){ ?>
-    <form id="form_rech" action="rechercherjeu.php" method="get">
+    <form id="form_rech" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
         <fieldset id="recherche">
         <legend class="txtMauv txtGras">Rechercher par: </legend>
         <table>
