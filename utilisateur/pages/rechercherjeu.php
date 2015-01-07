@@ -2,7 +2,7 @@
 
 <?php
 
-if(isset($_GET['submit_rech'])) {
+if(isset($_POST['submit_rech'])) {
     echo 'dans le get appui bouton';
     extract($_GET,EXTR_OVERWRITE);
 	if(trim($titre)!='' || trim($genre)!='' || trim($dev)!=''){
@@ -101,7 +101,7 @@ if(isset($cat)){ ?>
 </form>
 <?php } ?>
 <?php if (!isset($cat)){ ?>
-    <form id="form_rech" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
+    <form id="form_rech" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
         <fieldset id="recherche">
         <legend class="txtMauv txtGras">Rechercher par: </legend>
         <table>
