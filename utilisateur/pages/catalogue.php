@@ -21,6 +21,7 @@ if(isset($_GET['submitcatalogue'])) {
         }
 	}
 ?>
+<section id="resultat" class="txtGreen"><?php if(isset($texte)) print $texte; ?></section>
 <form id="formachat" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
 <table>
      <tr>

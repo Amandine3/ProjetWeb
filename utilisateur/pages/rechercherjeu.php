@@ -167,3 +167,4 @@ if(isset($cat)){ ?>
         </fieldset>
     </form>
 <?php } ?>
+<section id="resultat" class="txtGreen"><?php if(isset($q)) print $q; ?></section>
