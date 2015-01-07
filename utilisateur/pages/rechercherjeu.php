@@ -31,8 +31,7 @@ if(isset($_GET['submit_rech'])) {
                 echo "passe";
 	}
 }
-?>
-<section id="resultat" class="txtGreen"><?php
+?><?php
 if(isset($_GET['submitcatalogue'])) {
     extract($_GET,EXTR_OVERWRITE);
       if(trim($id_client)!='')
@@ -100,10 +99,8 @@ if(isset($cat)){ ?>
 
 </table>
 </form>
-</section>
 <?php } ?>
 <?php if (!isset($cat)){ ?>
-<section id="leform">
     <form id="form_rech" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset id="recherche">
         <legend class="txtMauv txtGras">Rechercher par: </legend>
@@ -169,5 +166,4 @@ if(isset($cat)){ ?>
         </table>
         </fieldset>
     </form>
-</section>
 <?php } ?>
