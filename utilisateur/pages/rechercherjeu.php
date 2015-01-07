@@ -2,7 +2,7 @@
 
 <?php
 
-if(isset($_GET['submit_rech'])) {
+if(isset($_POST['submit_rech'])) {
     echo 'dans le get appui bouton';
     extract($_GET,EXTR_OVERWRITE);
 	if(trim($titre)!='' || trim($genre)!='' || trim($dev)!=''){
