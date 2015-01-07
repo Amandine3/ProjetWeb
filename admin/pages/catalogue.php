@@ -67,7 +67,7 @@ if(isset($_GET['submitcatalogue'])) {
     }
 ?>
 <tr> 
-    <td></td><td>Valeur blabla</td><td><a href="index.php?page=pourfpdf">Catalogue en PDF</a></td><td></td><td></td><td></td>  <td colspan="2">
+    <td></td><td>Valeur blabla</td><td><a href="index.php?page=printcat">Catalogue en PDF</a></td><td></td><td></td><td></td>  <td colspan="2">
                     
 <input type="submit" name="submitcatalogue" id="submitcatalogue" value="Acheter"/>
 <!--<input type="hidden" name="hd" id="hd" value="hd"/>-->

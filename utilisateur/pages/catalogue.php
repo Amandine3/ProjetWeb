@@ -68,6 +68,6 @@ if(isset($_GET['submitcatalogue'])) {
                 &nbsp;&nbsp;&nbsp;
                 </td>
             </tr>
-<a href="index.php?page=..\pages\pourfpdf">Catalogue en PDF</a>
+<a href="index.php?page=printcat">Version PDF de notre catalogue</a>
 </table>
 </form>
