@@ -5,31 +5,30 @@
 if(isset($_POST['submit_rech'])) {
     echo 'dans le get appui bouton';
     extract($_GET,EXTR_OVERWRITE);
-	if(trim($titre)!='' || trim($genre)!='' || trim($dev)!=''){
-		$q="select * from jeuxcat where";
-		if(trim($titre)!='') {
-			$q=$q & " titre ={$titre}";
-			if(trim($genre)!=''){
-				$q=$q & " and cat={$genre}";
-			}
-			if(trim($dev)!=''){
-				$q=$q & " and dev={$dev}";
-			}
-			
-		}
-		else if (trim($genre)!=''){
-			$q=$q & " cat={$genre}";
-			if(trim($dev)!=''){
-				$q=$q & " and dev={$dev}";
-			}
-		}
-		else{
-			$q= $q & " dev={$dev}";
-		}
-                echo '<p>{$q}</p>';
-		$cat = $bdd->query(q) or die(print_r($bdd->errorInfo()));
-                echo "passe";
+    $r= new rechmanager($db);
+	if(trim($titre)!='' && trim($genre)!='' && trim($dev)!=''){
+		$cat=$r->getjeuxall($titre, $genre, $dev);
 	}
+	else if(trim($titre)!='' && trim($genre)!=''){
+		$cat=$r->getjeuxtc($titre, $genre);
+	}
+	else if(trim($titre)!='' && trim($dev)!=''){
+		$cat=$r->getjeuxtd($titre, $dev);
+	}
+	else if(trim($genre)!='' && trim($dev)!=''){
+		$cat=$r->getjeuxcd($cat, $genre);
+	}
+	else if(trim($titre)!=''){
+		$cat=$r->getjeuxt($titre);
+	}
+	else if(trim($genre)!=''){
+		$cat=$r->getjeuxc($genre);
+	}
+	else if(trim($dev)!=''){
+		$cat=$r->getjeuxd($dev);
+	}
+	
+}
 }
 ?><?php
 if(isset($_GET['submitcatalogue'])) {
