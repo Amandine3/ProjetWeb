@@ -1,7 +1,9 @@
-<h2 id="titre_page"> Rechercher un jeu </h2>
+<h2 id="titre_page"> Rechercher un jeu 45</h2>
+
 <?php
 
 if(isset($_GET['submit_rech'])) {
+    echo 'dans le get appui bouton';
     extract($_GET,EXTR_OVERWRITE);
 	if(trim($titre)!='' || trim($genre)!='' || trim($dev)!=''){
 		$q="select * from jeuxcat where";
@@ -24,7 +26,9 @@ if(isset($_GET['submit_rech'])) {
 		else{
 			$q= $q & " dev={$dev}";
 		}
+                echo '<p>{$q}</p>';
 		$cat = $bdd->query(q) or die(print_r($bdd->errorInfo()));
+                echo "passe";
 	}
 }
 ?>
@@ -49,7 +53,7 @@ if(isset($_GET['submitcatalogue'])) {
         }
     }
 
-if(isset($cat)){?>
+if(isset($cat)){ ?>
 <form id="formachat" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
 <table>
      <tr>
@@ -96,11 +100,11 @@ if(isset($cat)){?>
 
 </table>
 </form>
-<?php}
- ?></section>
-<?php if (isset($cat)){?>
+</section>
+<?php } ?>
+<?php if (!isset($cat)){ ?>
 <section id="leform">
-    <form id="form_rech" action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
+    <form id="form_rech" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset id="recherche">
         <legend class="txtMauv txtGras">Rechercher par: </legend>
         <table>
@@ -112,7 +116,7 @@ if(isset($cat)){?>
                     }
                     else {
                         ?>
-                        <input type="text" name="titre" id="titre" placeholder="Titre" required/>
+                        <input type="text" name="titre" id="titre" placeholder="Titre"/>
                         <?php
                     }
                     ?>
@@ -129,7 +133,7 @@ if(isset($cat)){?>
                     }
                     else {
                         ?>
-                        <input type="text" name="genre" id="genre" placeholder="Genre" required/>
+                        <input type="text" name="genre" id="genre" placeholder="Genre"/>
                         <?php
                     }
                     ?>
@@ -145,7 +149,7 @@ if(isset($cat)){?>
                     }
                     else {
                         ?>
-                        <input type="text" name="dev" id="dev" placeholder="D&eacuteveloppeurs" required/>
+                        <input type="text" name="dev" id="dev" placeholder="Developpeurs"/>
                         <?php
                     }
                     ?>
@@ -156,7 +160,7 @@ if(isset($cat)){?>
 
             <tr>
                 <td colspan="2">
-                <input type="submit" name="submit_reserv" id="submit_reserv" value="Envoyer la demande" />
+                <input type="submit" name="submit_rech" id="submit_rech" value="Envoyer la demande" />
                 &nbsp;&nbsp;&nbsp;
                 <input type="reset" id="reset" value="R&eacute;initialiser le formulaire" />
                 </td>
